@@ -1,0 +1,1 @@
+Start-Process -FilePath "msiexec" -ArgumentList "/i `"C:\path-to-MSIFIle\msi-file.msi`" /q SWITCHName=`"blah-blah-blah`""
