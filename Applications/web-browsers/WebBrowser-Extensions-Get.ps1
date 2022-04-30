@@ -32,7 +32,3 @@ Function EdgeBrowserProfiles($EdgeUser) {
 foreach ($User in $UserProfiles) {
     EdgeBrowserProfiles $User
 }
-
-
-
-

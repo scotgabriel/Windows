@@ -1,0 +1,1 @@
+[string]$OsDrive = (Get-WmiObject Win32_OperatingSystem).SystemDrive
