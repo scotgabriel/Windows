@@ -9,3 +9,5 @@ Function CreateRegistryKeyPath() {
         Write-Host "created reg path"
     }
 }
+
+CreateRegistryKeyPath
