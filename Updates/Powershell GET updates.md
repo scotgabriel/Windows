@@ -1,0 +1,3 @@
+```powershell
+Get-WindowsUpdates
+```
