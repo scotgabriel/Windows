@@ -1,0 +1,1 @@
+Get-WmiObject win32_networkadapter -Filter "netconnectionstatus = 7 or netconnectionstatus = 2"
