@@ -1,0 +1,1 @@
+Requires downloading "handle64.exe" from Microsoft SysInternals Suite.
