@@ -1,5 +1,7 @@
 # System Drive Fragmentation
 # Analyzes the system drive to detect if a defragmentation is necessary. Requires Windows 8+ or Windows Server 2012.
+# Logic doesn't work on Windows 10 (fix)
+# ?? Need to NOT analyze if solid state drive??
 
 $version = (Get-WmiObject Win32_OperatingSystem).Version
 $major = $version.split(".")[0]
