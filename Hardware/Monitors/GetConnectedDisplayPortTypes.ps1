@@ -24,7 +24,7 @@ $displays = Get-WmiObject -Query "SELECT __SERVER,Active,VideoOutputTechnology F
 if ($?)
     {
     foreach ($display in $displays) {
-        If ($displaylist -ne $null) {
+        If ($null -ne $displaylist) {
             $displaylist += ","
         }
         $displaylist += $displaytypes[$display.VideoOutputTechnology.GetHashCode()]
