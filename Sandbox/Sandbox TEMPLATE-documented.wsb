@@ -1,0 +1,93 @@
+<Configuration>
+    <!--
+        vGPU settings
+            Description: Enables or disables GPU sharing.
+            Notes: Enabling virtualized GPU can potentially increase the attack surface of the sandbox.
+            Enable: Enables vGPU support in the sandbox.
+            Disable: Disables vGPU support in the sandbox. If this value is set, the sandbox will use software rendering, which may be slower than virtualized GPU.
+            Default This is the default value for vGPU support. Currently this means vGPU is disabled.
+    -->
+    <vGPU>value</vGPU>
+    <!--
+        Network settings
+            Description: Enables or disables networking in the sandbox. You can disable network access to decrease the attack surface exposed by the sandbox.
+            Notes: Enabling networking can expose untrusted applications to the internal network.
+            Disable: Disables networking in the sandbox.
+            Default: This is the default value for networking support. This value enables networking by creating a virtual switch on the host and connects the sandbox to it via a virtual NIC.
+    -->
+    <Networking>value</Networking>
+    <!--
+        Mapped Drives
+            Description: An array of folders, each representing a location on the host machine that will be shared into the sandbox at the specified path. At this time, relative paths are not supported. If no path is specified, the folder will be mapped to the container user's desktop.
+            Notes: Files and folders mapped in from the host can be compromised by apps in the sandbox or potentially affect the host.
+            HostFolder: Specifies the folder on the host machine to share into the sandbox. Note that the folder must already exist on the host, or the container will fail to start.
+            SandboxFolder: Specifies the destination in the sandbox to map the folder to. If the folder doesn't exist, it will be created. If no sandbox folder is specified, the folder will be mapped to the container desktop.
+            ReadOnly: If true, enforces read-only access to the shared folder from within the container. Supported values: true/false. Defaults to false.
+    -->
+    <MappedFolders>
+        <MappedFolder> 
+            <HostFolder>absolute path to the host folder</HostFolder> 
+            <SandboxFolder>absolute path to the sandbox folder</SandboxFolder> 
+            <ReadOnly>ReadOnly</ReadOnly> 
+        </MappedFolder>
+    </MappedFolders>
+    <!--
+        Logon Command
+            Description: Specifies a single command that will be invoked automatically after the sandbox logs on. Apps in the sandbox are run under the container user account.
+            Notes: Although very simple commands will work (such as launching an executable or script), more complicated scenarios involving multiple steps should be placed into a script file. This script file may be mapped into the container via a shared folder, and then executed via the LogonCommand directive.
+            Command: A path to an executable or script inside the container that will be executed after login.
+    -->
+    <LogonCommand>
+        <Command>command to be invoked</Command>
+    </LogonCommand>
+    <!--
+        Audio Input
+            Description: Enables or disables audio input to the sandbox
+            Notes: There may be security implications of exposing host audio input to the container.
+            Enable: Enables audio input in the sandbox. If this value is set, the sandbox will be able to receive audio input from the user. Applications that use a microphone may require this capability.
+            Disable: Disables audio input in the sandbox. If this value is set, the sandbox can't receive audio input from the user. Applications that use a microphone may not function properly with this setting.
+            Default: This is the default value for audio input support. Currently this means audio input is enabled.
+    -->
+    <AudioInput>value</AudioInput>
+    <!--
+        Video input
+            Description: Enables or disables video input to the sandbox.
+            Notes: There may be security implications of exposing host video input to the container.
+            Enable: Enables video input in the sandbox.
+            Disable: Disables video input in the sandbox. Applications that use video input may not function properly in the sandbox.
+            Default: This is the default value for video input support. Currently this means video input is disabled. Applications that use video input may not function properly in the sandbox.
+    -->
+    <VideoInput>value</VideoInput>
+    <!--
+        Protected client
+            Description: Applies additional security settings to the sandbox Remote Desktop client, decreasing its attack surface.
+            Notes: This setting may restrict the user's ability to copy/paste files in and out of the sandbox.
+            Enable: Runs Windows sandbox in Protected Client mode. If this value is set, the sandbox runs with extra security mitigations enabled.
+            Disable: Runs the sandbox in standard mode without extra security mitigations.
+            Default: This is the default value for Protected Client mode. Currently, this means the sandbox doesn't run in Protected Client mode.
+    -->
+    <ProtectedClient>value</ProtectedClient>
+    <!--
+        Printer redirection
+            Description: Enables or disables printer sharing from the host into the sandbox.
+            Notes:
+            Enable: Enables sharing of host printers into the sandbox.
+            Disable: Disables printer redirection in the sandbox. If this value is set, the sandbox can't view printers from the host.
+            Default: This is the default value for printer redirection support. Currently this means printer redirection is disabled.
+    -->
+    <PrinterRedirection>value</PrinterRedirection>
+    <!--
+        Clipboard redirection
+            Description: Enables or disables sharing of the host clipboard with the sandbox.
+            Notes: 
+            Disable: Disables clipboard redirection in the sandbox. If this value is set, copy/paste in and out of the sandbox will be restricted.
+            Default: This is the default value for clipboard redirection. Currently copy/paste between the host and sandbox are permitted under Default.
+    -->
+    <ClipboardRedirection>value</ClipboardRedirection>
+    <!--
+        Memory in MB
+            Description: Specifies the amount of memory that the sandbox can use in megabytes (MB).
+            Notes: If the memory value specified is insufficient to boot a sandbox, it will be automatically increased to the required minimum amount.
+    -->
+    <MemoryInMB>value</MemoryInMB>
+</Configuration>

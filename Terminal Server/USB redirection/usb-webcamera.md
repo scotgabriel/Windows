@@ -1,0 +1,1 @@
+![Local Group Policy to allow](attachments/2021-08-17%2011_59_58-Console1%20-%20[Console%20Root_Local%20Computer%20Policy_Computer%20Configuration_Administra.png)
