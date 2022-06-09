@@ -1,1 +1,1 @@
-get-eventlog -source "Service Control Manager" -LogName System | where-object {$_.message -match "Windows Time Service"} | select message, timegenerated, username | ft -AutoSize
+get-eventlog -source "Service Control Manager" -LogName System | where-object {$_.message -match "Windows Time Service"} | Select-Object message, timegenerated, username | Format-Table -AutoSize
