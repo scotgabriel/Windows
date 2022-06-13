@@ -1,0 +1,1 @@
+get-acl '.\folder-Name\' | select-object -expandproperty access | Select-Object AccessControlType, IdentityReference
