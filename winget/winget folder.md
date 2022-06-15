@@ -1,0 +1,1 @@
+# winget temp folderC:\Users\USERNAME\AppData\Local\Temp\WinGet
