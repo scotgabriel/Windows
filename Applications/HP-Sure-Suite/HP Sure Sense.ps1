@@ -1,1 +1,5 @@
 winget uninstall "HP Sure Sense Installer"
+winget uninstall "HP Sure Recover"
+winget uninstall "HP Sure Run"
+winget uninstall "HP Sure Click"
+winget uninstall "HP Client Security Manager"
