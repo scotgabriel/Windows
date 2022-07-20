@@ -4,6 +4,8 @@ Get-Process | Select-Object * | Out-File -FilePath C:\<path-here>
 systeminfo | Out-File -FilePath C:\<path-here>
 Get-WmiObject win32_service | Select-Object * | Out-File -FilePath C:\<path-here>
 query user | Out-File -FilePath C:\<path-here>
+
+# Exporting HKLM generates a file often around half a gig in size
 reg export "HKLM" | Out-File -FilePath C:\<path-here>
 reg export "HKCU" | Out-File -FilePath C:\<path-here>
 net user | Out-File -FilePath C:\<path-here>
